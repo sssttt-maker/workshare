@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  get 'message/index'
   devise_for :users
   get 'toppages/index'
   root to: 'toppages#index'
+
+  resources :rooms, only: %i[show]
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

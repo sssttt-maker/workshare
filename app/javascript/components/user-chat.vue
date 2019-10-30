@@ -3,7 +3,7 @@
     <div>
       <div v-for="item in messages" :key="item.message.id">
         <div>
-          <div>{{ item.message.content }}</div>
+          <div>{{ userEmail }}:{{ item.message.content }}</div>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
       userMessageChannel: null,
     };
   },
-  props: ['userId'],
+  props: ['userId', 'roomId', 'userEmail'],
   created() {
     this.userMessageChannel = this.$cable.subscriptions.create( "UserMessageChannel", {
       received: (data) => {
@@ -41,6 +41,7 @@ export default {
       this.userMessageChannel.perform('speak', {
         message: this.message,
         user_id: this.userId,
+        room_id: this.roomId
       });
     },
 
