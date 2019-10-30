@@ -1,0 +1,8 @@
+
+<% @messages.each do |message| %>
+  <div>
+    <%= message.content %>
+  </div>
+<% end %>
+
+<user-chat user-id="<%= current_user.id %>"></user-chat>

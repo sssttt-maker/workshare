@@ -1,5 +1,14 @@
 {
   "name": "workshare",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^4.0.7",
+    "actioncable": "^5.2.3",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
+  }
 }
