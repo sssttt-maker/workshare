@@ -1,7 +1,8 @@
 class RoomsController < ApplicationController
 
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms
+    @other_rooms = Room.where.not(id: @rooms.ids)
   end
 
   def show

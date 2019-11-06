@@ -1,10 +1,29 @@
+
 <%= link_to '新規作成', new_room_path, class: 'btn btn-primary' %>
 
-
-<div>
-  <ul>
-    <% @rooms.each do |room| %>
-      <li><%= link_to "ROOM#{room.id}", room_path(room) %></li>
-    <% end %>
-  </ul>
+<div id="room">
+  <div>
+    <ul>
+      <% @rooms.each do |room| %>
+        <li>
+          <%= link_to room.name, room_path(room) %>
+          <p>
+            <room-button :user-id="<%= current_user.id %>" room-id="<%= room.id %>"></room-button>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <% @other_rooms.each do |other_room| %>
+        <li>
+          <%= other_room.name %>
+          <p>
+            <room-button :user-id="<%= current_user.id %>" room-id="<%= other_room.id %>"></room-button>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
