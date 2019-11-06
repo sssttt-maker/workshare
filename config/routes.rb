@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'toppages/index'
   root to: 'toppages#index'
 
-  resources :rooms, only: %i[show]
+  resources :rooms
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
