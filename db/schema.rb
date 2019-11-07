@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_032803) do
+ActiveRecord::Schema.define(version: 2019_11_07_043227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "belongs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_belongs_on_organization_id"
+    t.index ["user_id", "organization_id"], name: "index_belongs_on_user_id_and_organization_id", unique: true
+    t.index ["user_id"], name: "index_belongs_on_user_id"
+  end
 
   create_table "entry_points", force: :cascade do |t|
     t.bigint "user_id"
@@ -52,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_11_07_032803) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_rooms_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,8 +85,11 @@ ActiveRecord::Schema.define(version: 2019_11_07_032803) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "belongs", "organizations"
+  add_foreign_key "belongs", "users"
   add_foreign_key "entry_points", "rooms"
   add_foreign_key "entry_points", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "rooms", "organizations"
 end

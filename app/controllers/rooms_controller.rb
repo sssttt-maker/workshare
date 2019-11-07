@@ -1,8 +1,7 @@
 class RoomsController < ApplicationController
-
+  before_action :authenticate_organization!
   def index
-    @rooms = current_user.rooms
-    @other_rooms = Room.where.not(id: @rooms.ids)
+    @rooms = current_organization.rooms
   end
 
   def show
@@ -25,5 +24,5 @@ end
 private
 
 def room_params
-  params.require(:room).permit(:name)
+  params.require(:room).permit(:name, :organization_id)
 end

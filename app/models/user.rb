@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :entry_points
   has_many :rooms, through: :entry_points, source: :room
 
+  has_many :belongs
+  has_many :organizations, through: :belongs, source: :organization
+
   def join(other_room)
     self.entry_points.find_or_create_by(room_id: other_room.id)
   end

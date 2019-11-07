@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     registrations: 'organizations/registrations'
   }
   get 'toppages/index'
-  root to: 'toppages#index'
+  root to: 'rooms#index'
 
   resources :rooms
   resources :users, only: [:index, :show, :edit, :update, :delete]
