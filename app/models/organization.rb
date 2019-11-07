@@ -8,4 +8,5 @@ class Organization < ApplicationRecord
   has_many :users, through: :belongs, source: :users
 
   has_many :rooms
+  has_many :tasks
 end

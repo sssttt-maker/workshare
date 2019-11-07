@@ -1,7 +1,8 @@
+<%= javascript_pack_tag 'room-button' %>
 
 <%= link_to '新規作成', new_room_path, class: 'btn btn-primary' %>
 
-<div id="room">
+<div id="room-button">
   <div>
     <ul>
       <% @rooms.each do |room| %>

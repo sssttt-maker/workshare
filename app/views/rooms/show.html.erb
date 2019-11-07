@@ -1,9 +1,13 @@
-<div id='messages'>
-  <div class="message">
-    <% @messages.each do |message| %>
-      <p><%= "#{message.user.email}: #{message.content}" %></p>
-    <% end %>
-  </div>
-</div>
+<%= javascript_pack_tag 'room-chat' %>
 
-<user-chat user-id="<%= current_user.id %>" room-id="<%= params['id'] %>" user-email="<%= current_user.email %>"></user-chat>
+<div id="room-chat">
+  <div id='messages'>
+    <div class="message">
+      <% @messages.each do |message| %>
+        <p><%= "#{message.user.email}: #{message.content}" %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <user-chat user-id="<%= current_user.id %>" room-id="<%= params['id'] %>" user-email="<%= current_user.email %>"></user-chat>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_043227) do
+ActiveRecord::Schema.define(version: 2019_11_07_085925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2019_11_07_043227) do
     t.index ["organization_id"], name: "index_rooms_on_organization_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "is_done", default: false, null: false
+    t.text "description"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_tasks_on_organization_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,4 +102,5 @@ ActiveRecord::Schema.define(version: 2019_11_07_043227) do
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "rooms", "organizations"
+  add_foreign_key "tasks", "organizations"
 end
