@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
 
   resources :rooms
-  resources :users, only: [:index, :show, :edit, :update, :delete]  
+  resources :users, only: [:index, :show, :edit, :update, :delete]
+  resources :organizations, only: [:index, :show]
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
