@@ -1,0 +1,12 @@
+<%= javascript_pack_tag 'invite' %>
+
+<div id="invite">
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= user.name %>
+        <invite-button user-id="<%= user.id %>" organization-id="<%= current_organization.id %>">招待する</invite-button>
+      </li>
+    <% end %>
+  </ul>
+</div>
