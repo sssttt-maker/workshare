@@ -5,7 +5,7 @@ class Organization < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :belongs
-  has_many :users, through: :belongs, source: :users
+  has_many :users, through: :belongs, source: :user
 
   has_many :rooms
   has_many :tasks

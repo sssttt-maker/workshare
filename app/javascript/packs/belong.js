@@ -1,10 +1,10 @@
 import Vue from 'vue/dist/vue.esm'
-import InviteButton from '../components/belongs/InviteButton.vue'
+import BelongPage from '../components/belongs/BelongPage.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    el: '#invite',
+    el: '#belong',
     data: {},
-    components: { InviteButton }
+    components: { BelongPage }
   })
 })

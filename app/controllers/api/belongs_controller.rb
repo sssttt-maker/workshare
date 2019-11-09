@@ -1,4 +1,15 @@
 class Api::BelongsController < ApplicationController
+
+  def index
+    users = User.all
+    belonged_users = current_organization.users
+    render json: {
+      users: users,
+      belonged_users: belonged_users, 
+      organization: current_organization
+    }
+  end
+
   def create
     user = User.find(belong_params[:user_id])
     organization = Organization.find(belong_params[:organization_id])

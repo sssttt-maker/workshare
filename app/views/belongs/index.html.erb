@@ -1,12 +1,5 @@
-<%= javascript_pack_tag 'invite' %>
+<%= javascript_pack_tag 'belong' %>
 
-<div id="invite">
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-        <%= user.name %>
-        <invite-button user-id="<%= user.id %>" organization-id="<%= current_organization.id %>">招待する</invite-button>
-      </li>
-    <% end %>
-  </ul>
+<div id="belong">
+  <belong-page>招待する</belong-page>
 </div>

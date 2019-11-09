@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :entry_points, only: [:index, :create, :destroy]
     resources :tasks, only: [:index, :create, :update]
     # post '/belongs', to: 'belongs#send'
-    resources :belongs, only: [:create]
+    resources :belongs, only: [:index, :create]
   end
   get 'message/index'
   devise_for :users, controllers: {
