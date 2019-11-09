@@ -1,4 +1,5 @@
 class BelongsController < ApplicationController
+  protect_from_forgery
   def index
     @users = User.all
   end
@@ -12,6 +13,6 @@ class BelongsController < ApplicationController
   private
 
   def belong_params
-    params.require(:belong).permit(:use_id, :organization_id)
+    params.require(:belong).permit(:user_id, :organization_id)
   end
 end

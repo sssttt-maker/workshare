@@ -1,6 +1,4 @@
 <%= javascript_include_tag 'application' %>
 
 
-<%= link_to "#{@organization.name}に参加する", belongs_url(user_id: @user.id, organization_id: @organization.id), method: :post %>
-<%= url_for(controller: :belongs, action: :index) %>
-<%= link_to "#{@organization.name}に参加する", {controller: 'belongs', action: 'create', user_id: @user.id, organization_id: @organization.id}, method: :post %>
+<%= link_to "#{@organization.name}に参加する", belongs_url(belong: {user_id: @user.id, organization_id: @organization.id}), method: :post %>
