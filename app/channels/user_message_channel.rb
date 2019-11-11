@@ -8,10 +8,15 @@ class UserMessageChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create!(
+    @message = Message.new(
       user_id: data['user_id'],
       content: data['message'],
-      room_id: data['room_id']
+      room_id: data['room_id'],
+      image: data['image']
     )
+
+   if @message.save(validate: false)
+     @message.parse_base64(data['image'])
+   end
   end
 end

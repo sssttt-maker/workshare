@@ -5,6 +5,7 @@
     <div class="message">
       <% @messages.each do |message| %>
         <p><%= "#{message.user.email}: #{message.content}" %></p>
+        <%= image_tag message.message_image if message.message_image.attached? %>
       <% end %>
     </div>
   </div>
