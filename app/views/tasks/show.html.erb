@@ -1,0 +1,17 @@
+
+<h1>タスクの詳細</h1>
+
+<table>
+  <tr>
+    <th>名前</th>
+    <td><%= @task.name %></td>
+  </tr>
+  <tr>
+    <th>詳細</th>
+    <td><%= simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: "div") %></td>
+  </tr>
+  <tr>
+    <th>画像</th>
+    <td><%= image_tag @task.image if @task.image.attached? %></td>
+  </tr>
+</table>

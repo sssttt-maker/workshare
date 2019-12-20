@@ -16,7 +16,7 @@
           </span>
           <span v-else>
             <button @click="belong.user_id = user.id; targetUserName = user.name; showModal = true">
-              <slot />
+              招待する
             </button>
           </span>
         </li>

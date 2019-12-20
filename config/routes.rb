@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :users, only: [:index, :show, :edit, :update, :delete]
   resources :organizations, only: [:index, :show]
-  resources :tasks, only: [:index]
+  resources :tasks
   resources :belongs, only: [:index, :create, :destroy]
 
 
